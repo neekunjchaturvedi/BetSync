@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, Moon, Sun, Plus, Users } from "lucide-react";
+import { Menu, Moon, Sun, Plus, Users, Wallet } from "lucide-react";
 import { useTheme } from "../../contexts/theme-context";
 import { Button } from "../ui/button";
 
@@ -17,10 +17,15 @@ export function Header() {
           onClick={() => navigate("/")}
           className="flex items-center gap-2 cursor-pointer"
         >
-          <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-lg">Σ</span>
+          <div className="w-10 h-10 bg-gray-700 from-primary to-accent rounded-lg flex items-center justify-center">
+            <span
+              className="text-white
+             font-bold text-lg"
+            >
+              Σ
+            </span>
           </div>
-          <h1 className="text-xl font-bold hidden sm:inline">BetSync</h1>
+          <h1 className="text-xl font-bold sm:inline">BetSync</h1>
         </div>
 
         {/* Desktop Menu */}
@@ -42,6 +47,13 @@ export function Header() {
               New Bet
             </Button>
           </Link>
+          <Link to="/create-bet">
+            <Button size="sm" className="bg-primary hover:bg-primary/90">
+              <Wallet className="w-4 h-4" />
+              Connect Wallet
+            </Button>
+          </Link>
+
           <Button variant="ghost" size="icon" onClick={toggleTheme}>
             {isDark ? (
               <Sun className="w-4 h-4" />
@@ -73,7 +85,7 @@ export function Header() {
       {/* Mobile Dropdown Menu */}
       {isMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 right-0 glass border-b">
-          <nav className="max-w-7xl mx-auto px-4 py-2 flex flex-col gap-1">
+          <nav className="max-w-7xl mx-auto px-4 py-2 flex flex-col gap-1 bg-white">
             <Link to="/" onClick={() => setIsMenuOpen(false)}>
               <Button variant="ghost" className="justify-start w-full">
                 Dashboard
@@ -86,9 +98,15 @@ export function Header() {
               </Button>
             </Link>
             <Link to="/create-bet" onClick={() => setIsMenuOpen(false)}>
-              <Button className="justify-start w-full bg-primary hover:bg-primary/90">
+              <Button className="justify-start bg-primary hover:bg-primary/90">
                 <Plus className="w-4 h-4 mr-2" />
                 New Bet
+              </Button>
+            </Link>
+            <Link to="/create-bet">
+              <Button size="sm" className="bg-primary hover:bg-primary/90">
+                <Wallet className="w-4 h-4" />
+                Connect Wallet
               </Button>
             </Link>
           </nav>
