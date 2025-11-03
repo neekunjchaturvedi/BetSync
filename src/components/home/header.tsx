@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Menu, Moon, Sun, Plus, Users, Wallet } from "lucide-react";
-import { useTheme } from "../../contexts/theme-context";
+import { Menu, Plus, Users, Wallet } from "lucide-react";
+
 import { Button } from "../ui/button";
 
 export function Header() {
-  const { isDark, toggleTheme } = useTheme();
+  // const { isDark, toggleTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -54,24 +54,24 @@ export function Header() {
             </Button>
           </Link>
 
-          <Button variant="ghost" size="icon" onClick={toggleTheme}>
+          {/* <Button variant="ghost" size="icon" onClick={toggleTheme}>
             {isDark ? (
               <Sun className="w-4 h-4" />
             ) : (
               <Moon className="w-4 h-4" />
             )}
-          </Button>
+          </Button> */}
         </nav>
 
         {/* Mobile Menu Buttons */}
         <div className="md:hidden flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={toggleTheme}>
+          {/* <Button variant="ghost" size="icon" onClick={toggleTheme}>
             {isDark ? (
               <Sun className="w-4 h-4" />
             ) : (
               <Moon className="w-4 h-4" />
             )}
-          </Button>
+          </Button> */}
           <Button
             variant="ghost"
             size="icon"
